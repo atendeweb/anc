@@ -1,54 +1,35 @@
----
-layout: null
-sitemap: false
----
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Página inicial -->
-  <url>
-    <loc>{{ site.url | default: "https://labanacli.com.br" }}</loc>
-    <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Todas as páginas (exceto as que têm sitemap: false no front matter) -->
-  {% for page in site.pages %}
-    {% if page.sitemap != false and page.url != "/404.html" %}
-  <url>
-    <loc>{{ site.url | default: "https://labanacli.com.br" }}{{ page.url | remove: "index.html" }}</loc>
-    {% if page.last_modified_at %}
-      <lastmod>{{ page.last_modified_at | date: "%Y-%m-%d" }}</lastmod>
-    {% elsif page.date %}
-      <lastmod>{{ page.date | date: "%Y-%m-%d" }}</lastmod>
-    {% else %}
-      <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
-    {% endif %}
-    <priority>0.8</priority>
-  </url>
-    {% endif %}
-  {% endfor %}
-
-  <!-- Todos os posts JÁ PUBLICADOS ou com data de hoje ou anterior -->
-{% assign now = site.time | date: '%s' %}
-{% for post in site.posts %}
-  {% assign post_date = post.date | date: '%s' %}
-  {% if post_date <= now %}
-  <url>
-    <loc>{{ site.url }}{{ post.url }}</loc>
-    {% if post.last_modified_at %}
-      <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
-    {% else %}
-      <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-    {% endif %}
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  {% endif %}
-{% endfor %}
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://labanacli.com.br/</loc>
+<lastmod>2025-12-04T09:25:25-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/diabetes.html</loc>
+<lastmod>2025-12-04T00:57:52-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/exames.html</loc>
+<lastmod>2025-12-04T00:57:52-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/googlea6b51e5c39a1cc33.html</loc>
+<lastmod>2025-12-05T15:03:01-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/hemograma.html</loc>
+<lastmod>2025-12-04T00:57:52-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/_layouts/post.html</loc>
+<lastmod>2025-11-27T13:29:41-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/exames_files/81f06a9b01a676a1bfed4b583fea414d.html</loc>
+<lastmod>2025-12-04T00:57:52-03:00</lastmod>
+</url>
+<url>
+<loc>https://labanacli.com.br/hematologistas/</loc>
+<lastmod>2026-04-10T13:52:50-03:00</lastmod>
+</url>
 </urlset>
